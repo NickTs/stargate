@@ -2,10 +2,10 @@ import React from 'react'
 import {Text, StyleSheet, View} from 'react-native'
 
 const Header = props => {
-  // console.log(props)
+  const {viewStyle, textStyle} = styles
   return (
-    <View style={styles.viewStyle}>
-      <Text style={styles.textStyle}>{props.title}</Text>
+    <View style={viewStyle}>
+      <Text style={textStyle}>{props.title}</Text>
     </View>
   )
 }
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Header
+export {Header}

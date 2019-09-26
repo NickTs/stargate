@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import Header from './src/component/uikit/Header'
+import {View} from 'react-native'
+import {Header, ImageCard} from './src/component/uikit/'
 
 const url =
   'https://gitlab.com/gHashTag/react-native-init-data/raw/master/db.json'
@@ -14,7 +15,6 @@ class App extends Component {
     try {
       const resp = await fetch(url)
       const data = await resp.json()
-      // console.log(data)
       this.setState({data})
     } catch (e) {
       throw e
@@ -23,7 +23,12 @@ class App extends Component {
 
   render() {
     console.log(this.state)
-    return <Header title={this.state.title} />
+    return (
+      <View>
+        <Header title={this.state.title} />
+        <ImageCard />
+      </View>
+    )
   }
 }
 
