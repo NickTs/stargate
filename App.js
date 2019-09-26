@@ -11,10 +11,14 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const resp = await fetch(url)
-    const data = await resp.json()
-    // console.log(data)
-    this.setState({data})
+    try {
+      const resp = await fetch(url)
+      const data = await resp.json()
+      // console.log(data)
+      this.setState({data})
+    } catch (e) {
+      throw e
+    }
   }
 
   render() {
