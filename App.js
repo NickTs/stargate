@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import {Header, ImageCard} from './src/component/uikit/'
+import {h, w} from './constans'
 
 const url =
   'https://gitlab.com/gHashTag/react-native-init-data/raw/master/db.json'
@@ -12,6 +13,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    console.log(h, w)
     try {
       const resp = await fetch(url)
       const data = await resp.json()
