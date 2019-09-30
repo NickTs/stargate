@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, ScrollView} from 'react-native'
+import {View, ScrollView, StyleSheet} from 'react-native'
 import {Header, ImageCard} from './src/component/uikit/'
 import {h, w} from './constans'
 
@@ -26,36 +26,30 @@ class App extends Component {
 
   render() {
     const {title, data} = this.state
+    const {conteiner} = styles
     return (
       <View>
         <Header title={title} />
         <ScrollView>
-          {data.map(item => (
-            <ImageCard data={item} key={item.id} />
-          ))}
+          <View style={conteiner}>
+            {data.map(item => (
+              <ImageCard data={item} key={item.id} />
+            ))}
+          </View>
         </ScrollView>
       </View>
     )
   }
-
-  /*  render() {
-    const {title, data} = this.state
-    console.log('data', data)
-    return (
-      <View>
-        <Header title={title} />
-        <View>
-          {data.map(item => {
-            console.log('item', item)
-
-            <ImageCard data={item} />
-            // <ImageCard data=(item) />
-          })}
-        </View>
-
-      </View>
-    )
-  }*/
 }
+
+const styles = StyleSheet.create({
+  conteiner: {
+    marginTop: 30,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    flexShrink: 2,
+    justifyContent: 'space-around',
+  },
+})
 
 export default App

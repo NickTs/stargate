@@ -2,8 +2,6 @@ import React from 'react'
 import {View, Image, Text, StyleSheet} from 'react-native'
 import {w} from '../../../constans'
 
-// const url = 'https://picsum.photos/200/300?random=1' // на github проблемы c запросом, поэтому ссылку поменял
-
 const ImageCard = ({data}) => {
   const {container, sub, h1, cover} = styles
   const {image, name} = data
@@ -16,20 +14,6 @@ const ImageCard = ({data}) => {
     </View>
   )
 }
-
-/*
-const ImageCard = () => {
-  const {h1, cover} = styles
-  return (
-    <View>
-      <Text style={h1}>StarGate</Text>
-      <View>
-        <Image style={cover} source={{uri: url}} />>
-      </View>
-    </View>
-  )
-}
-*/
 
 const styles = StyleSheet.create({
   container: {
