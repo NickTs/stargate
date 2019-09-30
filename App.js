@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View} from 'react-native'
+import {View, ScrollView} from 'react-native'
 import {Header, ImageCard} from './src/component/uikit/'
 import {h, w} from './constans'
 
@@ -13,7 +13,8 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    console.log(h, w)
+    console.log('h, w', h, w)
+    console.log('url', url)
     try {
       const resp = await fetch(url)
       const data = await resp.json()
@@ -24,14 +25,37 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+    const {title, data} = this.state
     return (
       <View>
-        <Header title={this.state.title} />
-        <ImageCard />
+        <Header title={title} />
+        <ScrollView>
+          {data.map(item => (
+            <ImageCard data={item} key={item.id} />
+          ))}
+        </ScrollView>
       </View>
     )
   }
+
+  /*  render() {
+    const {title, data} = this.state
+    console.log('data', data)
+    return (
+      <View>
+        <Header title={title} />
+        <View>
+          {data.map(item => {
+            console.log('item', item)
+
+            <ImageCard data={item} />
+            // <ImageCard data=(item) />
+          })}
+        </View>
+
+      </View>
+    )
+  }*/
 }
 
 export default App
